@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+    --line-border-fill:#0b4eca;
+    --line-border-empty:#494949;
+    --input-placeholder:#a19494;
+    }
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: #ffffff0c;
+    font-family:Poppins, sans-serif;
+     
+    color: var(--line-border-empty);
+}
+.city{
+    z-index: 1;
+    background-color: #fffefe;}
+    .expindex{
+        z-index: 2;
+    }
+.heading{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-family: proxima-nova, Arial, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+
+.container{
+width:80vw;
+padding: 1rem 1rem;
+margin-bottom: 80px;
+overflow-x:hidden ;
+}
+.container input::placeholder{
+    color: var(--input-placeholder);
+}
+.hidemsg{
+    display: none;
+}
+
+.reasonbox {
+    margin-top: 0.5rem;
+    margin-right: 0px;
+    width: 340px;
+    height: 32px;
+    text-align: start;
+    border-radius: 3px;
+    border: 1px solid rgb(180, 178, 178);
+    box-sizing: content-box;
+    margin-bottom: 0;
+    
+}
+
+
+.jobinterest {
+    margin-top: 0.5rem;
+    margin-right: 10px;
+    /* padding: 0.4rem 0.3rem; */
+    width: 350x;
+    height: 28px;
+    text-align: start;
+    border-radius: 5px;
+    border: 1px solid rgb(180, 178, 178);
+    box-sizing: content-box;
+    
+}
+.reasonbox{
+margin-right: 10px
+}
+.reasonbox .select  {
+    border:none;
+    box-sizing:content-box;
+    width:97%;
+    height: 5px;
+    align-items: flex-start;
+}
+
+ .size{
+    margin-top: 0.5rem;
+    margin-right: 0px;
+    width: 500px;
+    height: 28px;
+    text-align: start;
+    border-radius: 5px;
+    border: 1px solid rgb(180, 178, 178);
+    box-sizing: content-box;
+}
+.size .select{
+    border:none;
+    box-sizing:content-box;
+    width:98%;
+    height: 10px;
+    align-items: flex-start;
+    
+}
+
+
+
+.jobinterest .Select  {
+    border:none;
+    box-sizing:content-box;
+    width: 350px;
+    height: 10px;
+    align-items: flex-start;
+}
+.size input {
+    visibility: hidden;
+}
+
+.reasonbox input {
+    visibility: hidden;
+}
+.container select::placeholder{
+    color: var(--input-placeholder);
+}
+.container input:not([type="radio"]){
+    border:none;
+    }
+.container select{
+    border:none;
+    
+}
+    
+.container input:not([type="radio"]):focus{
+    box-shadow:-1px -1px 2px rgb(255, 236, 207), 1px 1px 5px rgb(1, 1, 252);
+    outline: none;
+}
+.container select:focus{
+    box-shadow:-1px -1px 2px rgb(255, 236, 207), 1px 1px 5px rgb(1, 1, 252);
+    outline: none;
+}
+.container input:is([type="radio"]):focus{
+    accent-color: rgb(34, 56, 253);
+    
+}
+.container .content h2{
+    font-size: 2rem;
+    color: var(--line-border-empty);
+    }
+.errmsg{
+    color: red;
+}
+.content {
+    font-size: 0.8rem;
+}
+
+.progress_container{
+    display: flex;
+    width:fit-content;
+    justify-content: space-around;
+    gap: 20px;
+    margin: 1rem 0;    
+    position: relative;
+}
+.circle{
+    background-color: #dddddd; 
+    height:30px;
+    width:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 1;
+}
+.circle.active{
+    border-color: var(--line-border-empty);
+    color:#fff ;
+    background-color:var(--line-border-fill);
+}
+.bttns{
+    display: flex;
+    gap: 10px;
+    margin: 2.2rem 0;
+}
+.bttns button{
+    padding: 8px 18px;
+    border:none;
+    position:relative;
+    left:0;
+}
+.bttn{
+    background-color: rgb(13, 218, 115);
+    color:white;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+.bttn:active{
+    transform: scale(0.98);
+    outline: none;
+}
+.btns .bttn.disable{
+    cursor: not-allowed;
+    background-color: #cececc;
+}
+.lastmsg{
+    display: flex;
+    margin-top: 30px;
+}
+.form-container .form{
+    padding-top :30px;
+    margin: 10px;    
+}
+.form-container .form div{
+    margin-bottom:5px;
+}
+.form-container .form input{
+    margin-top: 0.5rem;
+    margin-right: 10px;
+    padding: 0.3rem 0.3rem;
+    width: 340px;
+    height: 33px;
+    text-align: start;
+    border-radius: 3px;
+    border: 1px solid rgb(180, 178, 178);
+    }
+.form-container .form select{
+    margin-top: 0.5rem;
+    margin-right: 10px;
+    padding: 0.4rem 0.3rem;
+    width: 22rem;
+    text-align: start;
+    border-radius: 5px;
+    border: 1px solid rgb(180, 178, 178);
+}
+.form-container .multselect input{
+ display: block;
+ }
+ .form-container .multselect {
+    width: 102%;
+    height: 100%;
+ }
+
+.hide{
+    visibility: hidden;
+}
+.inputdetail {
+    display: flex;
+    flex-flow: column;
+    width: 50%;
+    margin-top: 10px;
+}
+.inputdetail label{
+    margin-bottom: 0px;
+}
+
+.form-container .form .radioitems div {      
+    margin-bottom: 3px;
+    display: flex;
+}
+.form-container .form .radioitems input{
+    margin:1;
+    width: 18px;
+    margin-top: 0;
+    padding: 0;
+    height: 18px;
+    size: 30px;
+    tab-size: 30px;
+    block-size: 30px;
+}
+.form-container .form .radioitems label{
+    margin-top: 6px;
+}
+
+.labelinput{
+    display:flex;
+    flex-flow:column;
+}
+.form-container .form .typeofjob input{
+    margin:5;
+    width: fit-content;
+}
+.inputtype label::after {
+content:"Recommended ";
+background-color: #efeff0;
+font-size: 0.7rem;
+color:black;
+z-index: 0;
+border-radius: 2px;
+margin-left: 5px;
+padding: 1px;
+}
+.endbtn{
+    width:250px;
+    border: none;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 0px;
+    color: white;
+    padding: 3px 12px;
+
+}
+.upload{    
+    background-color: #0b4eca;    
+}
+.finish{
+    margin-top: 5px;
+    margin-left: -50px;
+}
