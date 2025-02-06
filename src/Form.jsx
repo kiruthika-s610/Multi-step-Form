@@ -4,7 +4,7 @@ import { useState } from "react";
 import { MdDone } from "react-icons/md";
 import Multioption from "./Multioption";
 import Drop from './drop';
-import Reason from "./reason";
+import Reason from "./Reason";
 import Experience from "./experience";
 import JobInterest from "./JobInterest";
 import Certificate from "./Certificate";
