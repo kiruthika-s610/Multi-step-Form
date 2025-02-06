@@ -586,7 +586,7 @@ export function Final({ formdata, setFormdata }) {
         form.append('photo', formdata.photo);
         form.append('resume', formdata.resume);
         try {
-            await axios.post('https://multi-step-form-backend-iyuu.onrender.com/submit-form', form, {
+            await axios.post('https://multi-step-form-backend-9e3t.onrender.com/submit-form', form, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             alert('Form submitted successfully');
@@ -598,7 +598,7 @@ export function Final({ formdata, setFormdata }) {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('https://multi-step-form-backend-iyuu.onrender.com/form-data');
+            const response = await axios.get('https://multi-step-form-backend-9e3t.onrender.com/form-data');
             setDataList(response.data);
         } catch (error) {
             console.error('Error fetching form data', error);
