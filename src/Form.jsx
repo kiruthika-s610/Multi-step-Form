@@ -494,10 +494,11 @@ export function ProfileSetup({ formdata, setFormdata, nextstep, error, seterror,
             await axios.post('https://multi-step-form-backend-9e3t.onrender.com/submit-form', form, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
-            alert('Form submitted successfully');
+            alert('Form Data added to Database successfully');
             fetchData();
         } catch (error) {
-            console.error('Error submitting form', error);
+            alert('Error in adding form data in database chech console log to verify error');
+            console.error('Error in adding form data in database', error);
         }
     };
 
