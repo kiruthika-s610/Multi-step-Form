@@ -61,6 +61,8 @@ const Multistep = () => {
     resume: ""
   })
   const [step, setstep] = useState(1);
+  const [dataList, setDataList] = useState([]);
+
   const handleInputData = input => e => {
     const { value } = e.target;
     setFormdata(prev => ({ ...prev, [input]: value }));
@@ -69,8 +71,8 @@ const Multistep = () => {
     switch (step) {
       case 1: return <GettingStart formdata={formdata} setFormdata={setFormdata} error={error} seterror={seterror} nextstep={nextstep} handleInputData={handleInputData} />;
       case 2: return <ProfessionalExp formdata={formdata} setFormdata={setFormdata} error={error} seterror={seterror} nextstep={nextstep} handleInputData={handleInputData} />;
-      case 3: return <ProfileSetup formdata={formdata} setFormdata={setFormdata} error={error} seterror={seterror} nextstep={nextstep} handleInputData={handleInputData}/>;
-      case 4: return <Final formdata={formdata} setFormdata={setFormdata} />
+      case 3: return <ProfileSetup formdata={formdata} setFormdata={setFormdata} error={error} seterror={seterror} nextstep={nextstep} handleInputData={handleInputData} setDataList={setDataList}/>;
+      case 4: return <Final dataList={dataList} />
       default:
         return null;
     }

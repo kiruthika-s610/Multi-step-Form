@@ -389,8 +389,9 @@ export function ProfessionalExp({ formdata, setFormdata, error, seterror, nextst
         </form>
     </div>
 }
-export function ProfileSetup({ formdata, setFormdata, nextstep, error, seterror }) {
+export function ProfileSetup({ formdata, setFormdata, nextstep, error, seterror, setDataList }) {
     const [msg, setmsg] = useState('');
+
 
     const handleimage = (e) => {
         seterror({ ...error, photo: '' })
@@ -466,11 +467,48 @@ export function ProfileSetup({ formdata, setFormdata, nextstep, error, seterror 
         }
     };
 
-    const handlesubmit = (e) => {
+    const handlesubmit = async (e) => {
         e.preventDefault();
         setmsg("Form submitted Successfully")
         nextstep();
-        localStorage.setItem('form', JSON.stringify(formdata));
+        // localStorage.setItem('form', JSON.stringify(formdata));
+        const form = new FormData();
+        form.append('name', formdata.name);
+        form.append('location', formdata.location);
+        form.append('city', formdata.city);
+        form.append('citizenship', formdata.citizenship);
+        form.append('EnglishProficiency', formdata.EnglishProficiency);
+        form.append('reason', formdata.reason);
+        form.append('yearsexp', formdata.yearsexp);
+        form.append('jobinterest', formdata.jobinterest);
+        form.append('yearsexp_skills', formdata.yearsexp_skills);
+        form.append('certificate', formdata.certificate);
+        form.append('skills', formdata.skills);
+        form.append('jobtype', formdata.jobtype);
+        form.append('rate_dollar', formdata.rate_dollar);
+        form.append('linkedin', formdata.linkedin);
+        form.append('Github', formdata.Github);
+        form.append('photo', formdata.photo);
+        form.append('resume', formdata.resume);
+        try {
+            await axios.post('https://multi-step-form-backend-9e3t.onrender.com/submit-form', form, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+            });
+            alert('Form submitted successfully');
+            fetchData();
+        } catch (error) {
+            console.error('Error submitting form', error);
+        }
+    };
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('https://multi-step-form-backend-9e3t.onrender.com/form-data');
+            setDataList(response.data);
+        } catch (error) {
+            console.error('Error fetching form data', error);
+        }
+
     }
     return <div className="form-container" >
         <div className="heading" style={{ paddingTop: "30px", fontSize: '1.7rem', fontWeight: 500 }}>
@@ -560,58 +598,58 @@ export function ProfileSetup({ formdata, setFormdata, nextstep, error, seterror 
         </form>
     </div>
 }
-export function Final({ formdata, setFormdata }) {
-    const [err, setErr] = useState('');
-    const [msg, setmsg] = useState('');
-    const [dataList, setDataList] = useState([]);
+export function Final({dataList }) {
+    // const [err, setErr] = useState('');
+    // const [msg, setmsg] = useState('');
+    // const [dataList, setDataList] = useState([]);
 
-    const handlesubmit = async () => {
-        setErr('');
-        const form = new FormData();
-        form.append('name', formdata.name);
-        form.append('location', formdata.location);
-        form.append('city', formdata.city);
-        form.append('citizenship', formdata.citizenship);
-        form.append('EnglishProficiency', formdata.EnglishProficiency);
-        form.append('reason', formdata.reason);
-        form.append('yearsexp', formdata.yearsexp);
-        form.append('jobinterest', formdata.jobinterest);
-        form.append('yearsexp_skills', formdata.yearsexp_skills);
-        form.append('certificate', formdata.certificate);
-        form.append('skills', formdata.skills);
-        form.append('jobtype', formdata.jobtype);
-        form.append('rate_dollar', formdata.rate_dollar);
-        form.append('linkedin', formdata.linkedin);
-        form.append('Github', formdata.Github);
-        form.append('photo', formdata.photo);
-        form.append('resume', formdata.resume);
-        try {
-            await axios.post('https://multi-step-form-backend-9e3t.onrender.com/submit-form', form, {
-                headers: { 'Content-Type': 'multipart/form-data' },
-            });
-            alert('Form submitted successfully');
-            fetchData();
-        } catch (error) {
-            console.error('Error submitting form', error);
-        }
-    };
+    // const handlesubmit = async () => {
+        // setErr('');
+        // const form = new FormData();
+        // form.append('name', formdata.name);
+        // form.append('location', formdata.location);
+        // form.append('city', formdata.city);
+        // form.append('citizenship', formdata.citizenship);
+        // form.append('EnglishProficiency', formdata.EnglishProficiency);
+        // form.append('reason', formdata.reason);
+        // form.append('yearsexp', formdata.yearsexp);
+        // form.append('jobinterest', formdata.jobinterest);
+        // form.append('yearsexp_skills', formdata.yearsexp_skills);
+        // form.append('certificate', formdata.certificate);
+        // form.append('skills', formdata.skills);
+        // form.append('jobtype', formdata.jobtype);
+        // form.append('rate_dollar', formdata.rate_dollar);
+        // form.append('linkedin', formdata.linkedin);
+        // form.append('Github', formdata.Github);
+        // form.append('photo', formdata.photo);
+        // form.append('resume', formdata.resume);
+        // try {
+        //     await axios.post('https://multi-step-form-backend-9e3t.onrender.com/submit-form', form, {
+        //         headers: { 'Content-Type': 'multipart/form-data' },
+        //     });
+        //     alert('Form submitted successfully');
+        //     fetchData();
+        // } catch (error) {
+        //     console.error('Error submitting form', error);
+        // }
+    // };
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('https://multi-step-form-backend-9e3t.onrender.com/form-data');
-            setDataList(response.data);
-        } catch (error) {
-            console.error('Error fetching form data', error);
-        }
-    };
+    // const fetchData = async () => {
+    //     try {
+    //         const response = await axios.get('https://multi-step-form-backend-9e3t.onrender.com/form-data');
+    //         setDataList(response.data);
+    //     } catch (error) {
+    //         console.error('Error fetching form data', error);
+    //     }
+    // };
 
     return <div className="form-container">
         <div style={{ display: "flex", flexFlow: 'column', padding: 50, justifyContent: "center", alignItems: 'center' }} className="errmsg">
             <h1>Form Submitted Successfully </h1> <br />
-            <br />  <button onClick={() => handlesubmit()} className="bttn" type="button" style={{ border: 'none', height: 50, width: 80, marginRight: 10, marginBottom: 50 }}>View Database</button>
-            {msg && <div className="errmsg">{msg}</div>}
+            {/* <br />  <button onClick={() => handlesubmit()} className="bttn" type="button" style={{ border: 'none', height: 50, width: 80, marginRight: 10, marginBottom: 50 }}>View Database</button> */}
+            {/* {msg && <div className="errmsg">{msg}</div>}
 
-            {err && <div className="errmsg">{err}</div>}
+            {err && <div className="errmsg">{err}</div>} */}
 
         </div>
         <br />
