@@ -608,7 +608,7 @@ export function Final({ formdata, setFormdata }) {
     return <div className="form-container">
         <div style={{ display: "flex", flexFlow: 'column', padding: 50, justifyContent: "center", alignItems: 'center' }} className="errmsg">
             <h1>Form Submitted Successfully </h1> <br />
-            <br />  <button onClick={() => handlesubmit()} className="bttn" type="button" style={{ border: 'none', height: 35, width: 70, marginRight: 10, marginBottom: 50 }}>View Database</button>
+            <br />  <button onClick={() => handlesubmit()} className="bttn" type="button" style={{ border: 'none', height: 50, width: 80, marginRight: 10, marginBottom: 50 }}>View Database</button>
             {msg && <div className="errmsg">{msg}</div>}
 
             {err && <div className="errmsg">{err}</div>}
